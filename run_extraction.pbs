@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=64:mem=450gb
+#PBS -l walltime=02:00:00
+#PBS -N extract_voice_features
+#PBS -j oe
+#PBS -o /home/user/voice_features.log
+./etc/profile.d/modules.sh
+module add MOD/python/3.9.6
+module add MOD/miniconda/4
+
+source activate voice_features_env
+
+python /home/user/extract_voice_features.py
